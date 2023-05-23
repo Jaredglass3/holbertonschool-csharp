@@ -15,7 +15,7 @@ namespace MyMath.Tests
         [Test]
         public void AddNegative()
         {
-            int result = MyMath.Operations.Add(-2, -1);
+            int result = MyMath.Operations.Add(-2, -1)
             Assert.AreEqual(-3, result);
         }
 
