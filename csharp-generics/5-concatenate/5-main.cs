@@ -15,7 +15,7 @@ class Program
         Console.WriteLine("----------");
 
         Queue<int> myIntQ = new Queue<int>();
-        myIntQ.Concatenate();
+        Console.WriteLine(myIntQ.Concatenate());
 
         Console.WriteLine("----------");
 
