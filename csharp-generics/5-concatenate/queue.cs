@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿using System;
 
 /// <summary> Custom Generic Queue class </summary>
 /// <typeparam name="T"> Generic type </typeparam>
