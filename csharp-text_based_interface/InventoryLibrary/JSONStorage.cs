@@ -52,6 +52,9 @@ namespace InventoryLibrary
             };
             string path = "../storage/inventory_manager.json";
             string json = JsonSerializer.Serialize(objects, options);
+            string directorypath = Path.GetDirectoryName(path);
+            if (!Directory.Exists(directorypath))
+            Directory.CreateDirectory(directorypath);
             File.WriteAllText(path, json);
         }
 
@@ -61,10 +64,20 @@ namespace InventoryLibrary
         public void Load()
         {
             string path = "../storage/inventory_manager.json";
-            string json = File.ReadAllText(path);
+            string directorypath = Path.GetDirectoryName(path);
+            if (!Directory.Exists(directorypath))
+            Directory.CreateDirectory(directorypath);
+            string json; 
+            try
+            {
+            json = File.ReadAllText(path);
             if (json == null || json == "")
                 return;
-
+            }
+            catch(FileNotFoundException)
+            {
+                return;
+            }
             // objects = JsonSerializer.Deserialize<Dictionary<string, object>>(json);
             JsonDocument doc = JsonDocument.Parse(json);
 
